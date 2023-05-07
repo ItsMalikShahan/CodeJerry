@@ -131,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
         zeroTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!calculationTv.getText().toString().isEmpty()) {
+//                if (!calculationTv.getText().toString().isEmpty()) {
 //                    calculation.add(zero);
-                    calculationTv.setText(calculationTv.getText() + zero);
-                }
+                calculationTv.setText(calculationTv.getText() + zero);
+
             }
         });
         acTv.setOnClickListener(new View.OnClickListener() {
@@ -159,8 +159,9 @@ public class MainActivity extends AppCompatActivity {
         dotTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                calculationTv.setText(calculationTv.getText() + dot);
+                if (!calculationTv.getText().toString().isEmpty()) {
+                    calculationTv.setText(calculationTv.getText() + dot);
+                }
             }
         });
         plusTv.setOnClickListener(new View.OnClickListener() {
@@ -170,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 if (text.length() > 0) {
                     char lastChar = text.charAt(text.length() - 1);
                     if (lastChar >= '0' && lastChar <= '9') {
-                        calculationTv.setText(text + addition);
+                        calculationTv.setText(text + " " + addition + " ");
                     } else if (lastChar == '+') {
                         // do nothing
                     } else {
@@ -186,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                 if (text.length() > 0) {
                     char lastChar = text.charAt(text.length() - 1);
                     if (lastChar >= '0' && lastChar <= '9') {
-                        calculationTv.setText(text + division);
+                        calculationTv.setText(text + " " + division + " ");
                     } else if (lastChar == '+') {
                         // do nothing
                     } else {
@@ -196,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         multiplicationTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -203,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
                 if (text.length() > 0) {
                     char lastChar = text.charAt(text.length() - 1);
                     if (lastChar >= '0' && lastChar <= '9') {
-                        calculationTv.setText(text + "*");
+                        calculationTv.setText(text + " * ");
                     } else if (lastChar == '+') {
                         // do nothing
                     } else {
@@ -219,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
                 if (text.length() > 0) {
                     char lastChar = text.charAt(text.length() - 1);
                     if (lastChar >= '0' && lastChar <= '9') {
-                        calculationTv.setText(text + subtraction);
+                        calculationTv.setText(text + " " + subtraction + " ");
                     } else if (lastChar == '+') {
                         // do nothing
                     } else {
